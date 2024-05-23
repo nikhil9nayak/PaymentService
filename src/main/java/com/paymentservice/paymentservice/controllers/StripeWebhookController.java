@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StripeWebhookController {
 
     @PostMapping
-    public void stripeWebhook(Event event){   // After a Event successfully completed, this webhook will auto trigger. Event can be anything like Payment Successful, Payment Failed, Payment Pending etc
+    public void stripeWebhook(Event event){   // After an Event successfully completed, this webhook will auto trigger. Event can be anything like Payment Successful, Payment Failed, Payment Pending etc
         System.out.println("Stripe Webhooks");
     }
 }
