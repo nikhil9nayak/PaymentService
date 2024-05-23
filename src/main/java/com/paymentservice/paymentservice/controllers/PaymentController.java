@@ -3,6 +3,7 @@ package com.paymentservice.paymentservice.controllers;
 import com.paymentservice.paymentservice.dtos.InitiatePaymentRequestDtos;
 import com.paymentservice.paymentservice.services.PaymentService;
 import com.razorpay.RazorpayException;
+import com.stripe.exception.StripeException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +17,7 @@ public class PaymentController { // External microservices will interact with PS
     }
 
     @PostMapping("/")
-    public String sayHello(@RequestBody InitiatePaymentRequestDtos requestDtos) throws RazorpayException {
+    public String sayHello(@RequestBody InitiatePaymentRequestDtos requestDtos) throws RazorpayException, StripeException {
         return paymentService.initiatePayment(requestDtos.getOrderId(), requestDtos.getAmount(), requestDtos.getPhoneNumber(), requestDtos.getEmail());
     }
 }

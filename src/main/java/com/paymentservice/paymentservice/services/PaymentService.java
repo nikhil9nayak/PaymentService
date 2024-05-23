@@ -2,6 +2,7 @@ package com.paymentservice.paymentservice.services;
 
 import com.paymentservice.paymentservice.paymentgateways.PaymentGateway;
 import com.razorpay.RazorpayException;
+import com.stripe.exception.StripeException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class PaymentService {
         this.paymentGateway = paymentGateway;
     }
 
-    public String initiatePayment(String orderId, Long amount, String phoneNumber, String email) throws RazorpayException {
+    public String initiatePayment(String orderId, Long amount, String phoneNumber, String email) throws RazorpayException, StripeException {
 //        Long amount = 10000L;
 
         //Generate Payment Link
